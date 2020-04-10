@@ -7,10 +7,13 @@ pipeline {
     stages {
         stage('Checkout code') {
             steps {
-                git branch: 'master',
-                    credentialsId: 'github_cred_id',
-                    url: 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
-                sh "ls -lat"
+                dir('taxi-code') {
+                    git branch: 'master',
+                        credentialsId: 'github_cred_id',
+                        url: 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
+                    sh "ls -lat"
+                    sh "cat Jenkinsfile"
+                }
             }
         }
     }
