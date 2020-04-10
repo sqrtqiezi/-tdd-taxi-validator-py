@@ -17,10 +17,20 @@ pipeline {
         }
         stage('Copy code files') {
             steps {
-                fileOperations([folderCopyOperation(
-                    sourceFolderPath: './taxi-code/taxi',
-                    destinationFolderPath: './'
-                )])
+                fileOperations([
+                    folderCopyOperation(
+                        sourceFolderPath: './taxi-code/taxi',
+                        destinationFolderPath: './taxi'
+                    ),
+                    folderCopyOperation(
+                        sourceFolderPath: './taxi-code/tests',
+                        destinationFolderPath: './tests'
+                    ),
+                    fileCopyOperation(
+                        includes: './taxi-code/main.py',
+                        targetLocation: '.'
+                    )
+                ])
                 sh 'ls -lat'
             }
         }
