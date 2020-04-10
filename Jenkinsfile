@@ -7,6 +7,9 @@ pipeline {
     stages {
         stage('Checkout code') {
             steps {
+                git branch: 'master',
+                    credentialsId: 'github_cred_id',
+                    url: 'ssh://git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
                 sh "ls -lat"
             }
         }
