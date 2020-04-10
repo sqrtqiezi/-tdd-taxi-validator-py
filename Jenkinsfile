@@ -27,7 +27,7 @@ pipeline {
                         destinationFolderPath: './tests'
                     ),
                     fileCopyOperation(
-                        includes: './taxi-code/main.py',
+                        includes: 'taxi-code/main.py',
                         targetLocation: '.'
                     )
                 ])
