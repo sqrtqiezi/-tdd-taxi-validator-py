@@ -11,11 +11,18 @@ pipeline {
                     git branch: 'master',
                         credentialsId: 'github_cred_id',
                         url: 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
-                    sh "ls -lat"
-                    sh "pwd"
-                    sh "cat Jenkinsfile"
+                    sh 'ls -lat'
                 }
             }
+        }
+        stage('Copy code file') {
+            fileOperations([fileCopyOperation(
+                excludes: '',
+                flattenFiles: true,
+                includes: '.\\taxi-code\\taxi\\*',
+                targetLocation: '.\\taxi'
+            )])
+            sh 'ls -lat taxi\\'
         }
     }
 }
