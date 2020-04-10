@@ -15,13 +15,13 @@ pipeline {
                 }
             }
         }
-        stage('Copy code file') {
+        stage('Copy code files') {
             steps {
                 fileOperations([fileCopyOperation(
                     excludes: '',
                     flattenFiles: true,
-                    includes: '.\\taxi-code\\taxi\\*',
-                    targetLocation: '.\\taxi'
+                    includes: './taxi-code/taxi/*.py',
+                    targetLocation: './taxi'
                 )])
                 sh 'pwd'
                 sh 'ls -lat'
