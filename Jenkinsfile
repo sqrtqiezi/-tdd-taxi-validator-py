@@ -16,13 +16,15 @@ pipeline {
             }
         }
         stage('Copy code file') {
-            fileOperations([fileCopyOperation(
-                excludes: '',
-                flattenFiles: true,
-                includes: '.\\taxi-code\\taxi\\*',
-                targetLocation: '.\\taxi'
-            )])
-            sh 'ls -lat taxi\\'
+            steps {
+                fileOperations([fileCopyOperation(
+                    excludes: '',
+                    flattenFiles: true,
+                    includes: '.\\taxi-code\\taxi\\*',
+                    targetLocation: '.\\taxi'
+                )])
+                sh 'ls -lat taxi\\'
+            }
         }
     }
 }
