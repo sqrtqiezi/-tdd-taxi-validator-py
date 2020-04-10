@@ -23,7 +23,8 @@ pipeline {
                     includes: '.\\taxi-code\\taxi\\*',
                     targetLocation: '.\\taxi'
                 )])
-                sh 'ls -lat taxi\\'
+                sh 'pwd'
+                sh 'ls -lat'
             }
         }
     }
