@@ -12,6 +12,7 @@ pipeline {
                         credentialsId: 'github_cred_id',
                         url: 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
                     sh "ls -lat"
+                    sh "pwd"
                     sh "cat Jenkinsfile"
                 }
             }
