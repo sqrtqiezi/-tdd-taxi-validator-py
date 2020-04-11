@@ -39,5 +39,11 @@ pipeline {
                 sh 'ls -lat'
             }
         }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'pip install -i https://pypi.doubanio.com/simple/ -r ./requirements.txt'
+            }
+        }
     }
 }
