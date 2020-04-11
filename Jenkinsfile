@@ -12,11 +12,11 @@ pipeline {
     stages {
         stage('Checkout code') {
             steps {
-                echo '${BRANCH}'
+                echo "${BRANCH}"
                 dir('taxi-code') {
-                    git branch: '${BRANCH}',
-                        credentialsId: '${CREDENTIALS_ID}',
-                        url: '${REPO_URL}'
+                    git branch: "${BRANCH}",
+                        credentialsId: "${CREDENTIALS_ID}",
+                        url: "${REPO_URL}"
                     sh 'ls -lat'
                 }
             }
