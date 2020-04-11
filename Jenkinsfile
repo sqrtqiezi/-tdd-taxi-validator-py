@@ -4,13 +4,18 @@ pipeline {
             image 'python:3.6'
         }
     }
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'master', description: 'work branch')
+        string(name: 'REPO_URL', description: 'git repo url')
+        string(name: 'CREDENTIALS_ID', description: 'credentials for fetch git repo')
+    }
     stages {
         stage('Checkout code') {
             steps {
                 dir('taxi-code') {
-                    git branch: 'master',
-                        credentialsId: 'github_cred_id',
-                        url: 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
+                    git branch: '${BRANCH}',
+                        credentialsId: '${CREDENTIALS_ID}',
+                        url: '${REPO_URL}'
                     sh 'ls -lat'
                 }
             }
