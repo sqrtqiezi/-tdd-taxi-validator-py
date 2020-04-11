@@ -1,10 +1,13 @@
 import jenkins
-JENKINS_SERVER = ''
-JENKINS_USER = ''
-JENKINS_PWD = ''
+JENKINS_SERVER = 'http://47.96.126.48:8080/'
+JENKINS_USER = 'admin'
+JENKINS_PWD = '0898a5e60d374da48f6e31978e7f9706'
+
+# git@github.com:sqrtqiezi/tdd-taxi-seed-py.git
+# git@github.com:sqrtqiezi/tdd-taxi-success-py.git
 
 JOB_NAME = 'tdd-taxi-validator-py/master'
-REPO_URL = 'git@github.com:sqrtqiezi/tdd-taxi-seed-py.git'
+REPO_URL = 'git@github.com:sqrtqiezi/tdd-taxi-success-py.git'
 CREDENTIALS_ID = 'github_cred_id'
 
 if __name__ == '__main__':

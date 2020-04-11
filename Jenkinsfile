@@ -12,6 +12,7 @@ pipeline {
     stages {
         stage('Checkout code') {
             steps {
+                echo '${BRANCH}'
                 dir('taxi-code') {
                     git branch: '${BRANCH}',
                         credentialsId: '${CREDENTIALS_ID}',
