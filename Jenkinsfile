@@ -34,6 +34,7 @@ pipeline {
                     ),
                     fileCopyOperation(
                         includes: 'taxi-code/main.py',
+                        flattenFiles: true,
                         targetLocation: '.'
                     )
                 ])
@@ -69,6 +70,11 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            deleteDir()
         }
     }
 }
