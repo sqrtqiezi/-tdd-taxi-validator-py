@@ -10,7 +10,7 @@ pipeline {
         string(name: 'CREDENTIALS_ID', description: 'credentials for fetch git repo')
     }
     stages {
-        stage('Checkout code') {
+        stage('Checkout Code') {
             steps {
                 echo "${BRANCH}"
                 dir('taxi-code') {
@@ -41,25 +41,22 @@ pipeline {
                 sh 'ls -lat'
             }
         }
-        stage('Build') {
+        stage('Install Requirements') {
             steps {
-                echo 'Building..'
                 sh 'pip install -i https://pypi.doubanio.com/simple/ -r ./requirements.txt'
             }
         }
-        stage('Style Check') {
+        stage('Check Code Style') {
             steps {
-                echo 'Checking'
                 sh 'python -m pylint taxi'
             }
         }
-        stage('Test') {
+        stage('Run Test') {
             steps {
-                echo 'testing'
                 sh 'python -m pytest --cov-branch --cov=taxi tests/ --cov-report xml:coverage.xml'
             }
         }
-        stage('Run') {
+        stage('Check Answer') {
             steps {
                 sh 'python main.py --test-data=./resource/testData.txt > temp'
                 script {
