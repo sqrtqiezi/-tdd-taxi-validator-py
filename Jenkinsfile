@@ -53,7 +53,11 @@ pipeline {
         }
         stage('Run Test') {
             steps {
-                sh 'python -m pytest --cov-branch --cov=taxi tests/ --cov-report xml:coverage.xml'
+                sh "python -m pytest --cov-branch \
+                        --cov=taxi tests/ \
+                        --cov-report xml:coverage.xml \
+                        --cov-report html:coverage_html \
+                        --cov-fail-under=100"
             }
         }
         stage('Check Answer') {
