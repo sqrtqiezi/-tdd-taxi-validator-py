@@ -50,7 +50,7 @@ pipeline {
         }
         stage('Check Answer') {
             steps {
-                sh 'python main.py --test-data=./resource/testData.txt > temp'
+                sh 'python main.py --test-data=./resource/testData2.txt > temp'
                 script {
                     String diff = sh(returnStdout: true, script: "diff temp resource/answer.txt")
                     if (diff != "") {
