@@ -23,21 +23,9 @@ pipeline {
         }
         stage('Copy code files') {
             steps {
-                fileOperations([
-                    folderCopyOperation(
-                        sourceFolderPath: './taxi-code/taxi',
-                        destinationFolderPath: './taxi'
-                    ),
-                    folderCopyOperation(
-                        sourceFolderPath: './taxi-code/tests',
-                        destinationFolderPath: './tests'
-                    ),
-                    fileCopyOperation(
-                        includes: 'taxi-code/main.py',
-                        flattenFiles: true,
-                        targetLocation: '.'
-                    )
-                ])
+                sh "cp -avr ./taxi-code/taxi ./taxi"
+                sh "cp -avr ./taxi-code/tests ./tests"
+                sh "cp -v ./taxi-code/main.py ./"
                 sh 'ls -lat'
             }
         }
